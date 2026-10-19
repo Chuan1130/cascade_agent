@@ -34,6 +34,14 @@ Cascade is an **8 × 8, two-player, turn-based stacking strategy game**. The inc
 
 The original CLI output uses `R3`, `B2` and dots instead of illustrated tiles. Run the commands below to view a **real** match on your terminal.
 
+### Reproduce the illustrated board and see a real agent decision
+
+```bash
+python -m examples.cascade_decision_demo
+```
+
+The [small demonstration script](examples/cascade_decision_demo.py) creates the illustrated board, checks that `CASCADE(3-2, [→])` is legal, applies the move through the **actual** `Board.apply_action()` method, verifies the resulting cell states, calls `undo_action()`, and finally invokes the real play-phase `choose_search_action()` policy. **The illustrative CASCADE is not presented as the agent's chosen move**: the script computes and prints the actual policy choice separately. It needs no downloaded assets or API keys.
+
 ## Architecture
 
 ```mermaid
